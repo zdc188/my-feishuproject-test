@@ -147,11 +147,22 @@ export class GameEngine {
     } else if (this.player.vy !== 0) {
       this.player.onGround = false;
     }
+    // 坠出地图底部兜底：重生到出生点，防无限下坠（P2-1）
+    if (this.player.y > this.map.mapHeightPx()) {
+      this.player.x = this.map.data.playerSpawn.x;
+      this.player.y = this.map.data.playerSpawn.y;
+      this.player.vx = 0;
+      this.player.vy = 0;
+      this.bus.emit('playerRespawn', {});
+    }
     this.record('state');
     this.playerSystem.updateState(this.player, snap);
     this.player.advanceAnim(dtMs);
     this.record('map');
     this.map.updateCamera(this.player.x + this.player.config.width / 2);
+    // 相机移动后驱动 chunk 窗口加载/卸载（P3-3）：pendingChunks 已去重，
+    // 窗口未变化时无实际 IO；异步加载失败由 MapSystem 兜底空 chunk
+    this.map.updateChunks();
     // 触发器/敌人碰撞事件派发（不阻挡移动）
     const box2 = aabbOf(this.player.x, this.player.y, this.player.config.width, this.player.config.height);
     const overlaps = this.collision.scanOverlaps(box2);

@@ -101,7 +101,7 @@ export class ResourceSystem {
       let oldestKey: string | null = null;
       let oldestTime = Number.MAX_SAFE_INTEGER;
       for (const [k, v] of this.cache) {
-        if (v.refCount === 0 && v.lastUsed < oldestTime) {
+        if (v.refCount === 0 && v.priority !== ResourcePriority.CORE && v.lastUsed < oldestTime) {
           oldestTime = v.lastUsed;
           oldestKey = k;
         }

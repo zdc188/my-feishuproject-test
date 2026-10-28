@@ -8,7 +8,7 @@ import {
   GameEngine, GameStateMachine, GameState, GameEvent,
   MapSystem, MapData, parseMapData, MapLoader,
   ResourceSystem, ResourceLoader, ResourcePriority,
-  Player
+  Player, joystickToAxis
 } from 'gamecore';
 import { CanvasRenderAdapter } from '../render/CanvasRenderAdapter';
 
@@ -349,9 +349,8 @@ struct JoystickControl {
     const ny = mag > 0 ? (dy / mag) * clampMag : 0;
     this.knobX = this.centerX + nx;
     this.knobY = this.centerY + ny;
-    // 杆量归一化 + 水平分量（含死区由 InputSystem/joystickToAxis 处理）
-    const axis = clampMag >= r * 0.999 ? Math.sign(dx) : (dx / r);
-    this.onAxis(Math.abs(axis) > 1 ? Math.sign(axis) : axis);
+    // 杆量经死区映射后输出（REQ-003：死区内待机，P2-2 修复）
+    this.onAxis(joystickToAxis(dx, dy));
   }
 }
 

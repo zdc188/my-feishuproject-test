@@ -1,0 +1,8 @@
+{
+  "modelVersion": "5.0.0",
+  "description": "鸿蒙原生2D横版动作小游戏（story #7147302976）",
+  "dependencies": {},
+  "devDependencies": {
+    "@ohos/hypium": "1.0.19"
+  }
+}

@@ -1,0 +1,2 @@
+# Define project specific obfuscation rules here (仅保留构建配置引用的默认规则).
+-dontwarn

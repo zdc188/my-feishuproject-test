@@ -1,0 +1,8 @@
+{
+  "color": [
+    { "name": "start_window_background", "value": "#000000" },
+    { "name": "joystick_bg", "value": "#33666666" },
+    { "name": "joystick_knob", "value": "#AAFFFFFF" },
+    { "name": "hud_text", "value": "#FFFFFF" }
+  ]
+}

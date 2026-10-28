@@ -1,0 +1,13 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "2D横版动作小游戏入口模块" },
+    { "name": "EntryAbility_desc", "value": "2D横版动作小游戏" },
+    { "name": "EntryAbility_label", "value": "横版动作小游戏" },
+    { "name": "btn_pause", "value": "暂停" },
+    { "name": "btn_resume", "value": "继续" },
+    { "name": "btn_quit", "value": "退出" },
+    { "name": "btn_restart", "value": "再来一局" },
+    { "name": "loading_text", "value": "资源加载中…" },
+    { "name": "btn_jump", "value": "跳" }
+  ]
+}

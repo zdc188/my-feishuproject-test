@@ -1,0 +1,14 @@
+{
+  "name": "gamecore-check",
+  "private": true,
+  "description": "gamecore 纯逻辑模块的等价静态检查（tsc 类型检查）与单元测试（无 DevEco/hvigor 环境时的最小门禁）",
+  "scripts": {
+    "prepare-work": "bash prepare.sh",
+    "typecheck": "bash prepare.sh && tsc -p tsconfig.json --noEmit",
+    "test": "bash prepare.sh && tsc -p tsconfig.json && node dist/tests/run-all.js"
+  },
+  "devDependencies": {
+    "typescript": "~5.5.4",
+    "@types/node": "~20.14.0"
+  }
+}

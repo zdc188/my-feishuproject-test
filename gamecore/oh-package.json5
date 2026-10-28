@@ -1,0 +1,9 @@
+{
+  "name": "gamecore",
+  "version": "1.0.0",
+  "description": "2D横版动作游戏纯逻辑库（无渲染依赖，DES-002~007）",
+  "main": "Index.ets",
+  "author": "codem",
+  "license": "Apache-2.0",
+  "dependencies": {}
+}
